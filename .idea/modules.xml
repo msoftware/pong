@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndEngine/AndEngine.iml" filepath="$PROJECT_DIR$/AndEngine/AndEngine.iml" />
       <module fileurl="file://$PROJECT_DIR$/Pong.iml" filepath="$PROJECT_DIR$/Pong.iml" />
-      <module fileurl="file://$PROJECT_DIR$/pong/pong.iml" filepath="$PROJECT_DIR$/pong/pong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pong.iml" filepath="$PROJECT_DIR$/pong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pong/pong-pong.iml" filepath="$PROJECT_DIR$/pong/pong-pong.iml" />
     </modules>
   </component>
 </project>
