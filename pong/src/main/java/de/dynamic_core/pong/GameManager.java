@@ -50,7 +50,7 @@ public class GameManager implements IGameManager, IOnSceneTouchListener {
         Scene pScene = new Scene();
 
         mBall = new Sprite(0, 0, mBallTextureRegion, pBaseGameActivity.getEngine().getVertexBufferObjectManager());
-        mBall.setPosition(40, 40);
+        mBall.setPosition(WIDTH / 2, HEIGHT / 2);
         pScene.attachChild(mBall);
 
         mPlayerRight = new Sprite(0, 0, mPlayerTextureRegion, pBaseGameActivity.getEngine().getVertexBufferObjectManager());
@@ -108,28 +108,27 @@ public class GameManager implements IGameManager, IOnSceneTouchListener {
         mFont.load();
     }
 
+    private void setPlayerPosition(Sprite player, float y) {
+        if (y < 0) {
+            y = 0;
+        }
+        if (y > HEIGHT - player.getHeight()) {
+            y = HEIGHT - player.getHeight();
+        }
+        player.setY(y);
+    }
+
     @Override
     public boolean onSceneTouchEvent(Scene pScene, TouchEvent pSceneTouchEvent) {
         float y = pSceneTouchEvent.getY();
         float x = pSceneTouchEvent.getX();
+
         if (x > (this.WIDTH / 2)) {
-            if (y < 0) {
-                y = 0;
-            }
-            if (y > HEIGHT - mPlayerRight.getHeight()) {
-                y = HEIGHT - mPlayerRight.getHeight();
-            }
-            mPlayerRight.setY(y);
+            setPlayerPosition(mPlayerRight, y);
         }
 
         if (x < (this.WIDTH / 2)) {
-            if (y < 0) {
-                y = 0;
-            }
-            if (y > HEIGHT - mPlayerLeft.getHeight()) {
-                y = HEIGHT - mPlayerLeft.getHeight();
-            }
-            mPlayerLeft.setY(y);
+            setPlayerPosition(mPlayerLeft, y);
         }
         return true;
     }
