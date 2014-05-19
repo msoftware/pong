@@ -8,7 +8,7 @@ import org.andengine.entity.sprite.Sprite;
  * Created by florian on 12.05.14.
  */
 class BallCollider implements IEntityModifier {
-    static float initialSpeed = 5f;
+    static float initialSpeed = 8f;
     float speed = initialSpeed;
     public float vy = speed;
     public float vx = speed;
@@ -99,7 +99,7 @@ class BallCollider implements IEntityModifier {
     private void changeBallDirection(Sprite ball, Sprite player) {
         vx *= -1;
         //vy *= -1;
-        speed = speed + .05f;
+        speed = speed + .1f;
         float player_y = player.getY() + player.getHeight() / 2;
         float ball_y = ball.getY() + ball.getHeight() / 2;
         vy = speed + Math.abs(player_y - ball_y) / 10;
