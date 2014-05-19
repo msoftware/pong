@@ -17,17 +17,21 @@ public class GamePlay extends SimpleBaseGameActivity {
     final int WIDTH = 800;
     final int HEIGHT = 480;
     Camera mCamera;
-    IGameManager mGameManager;
+    IGameManager mGameManager, mGameMenu;
 
     @Override
     protected void onCreateResources() {
         mGameManager = new GameManager(WIDTH, HEIGHT);
         mGameManager.loadResources(this);
+
+        mGameMenu = new GameMenu(WIDTH, HEIGHT);
+        mGameMenu.loadResources(this);
     }
 
     @Override
     protected Scene onCreateScene() {
-        return mGameManager.generateSceneAndObjects(this);
+        //return mGameManager.generateSceneAndObjects(this);
+        return mGameMenu.generateSceneAndObjects(this);
     }
 
     @Override
